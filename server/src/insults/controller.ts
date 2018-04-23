@@ -20,25 +20,21 @@ export default class InsultController
     }
 
   @Put('/insults/:id([0-9]+)')
-  async updateGame
-     (
-      @Param('id') insultId: number,
-      @Body() update: Partial<Insult>
-
-     ){
-        let currentGame=await Insult.findOneById(insultId)
-        console.log(currentGame)
-        if(currentGame!=null)
-        {
-           let chances=calculateChances(currentGame.comeback,update.comeback)
-           if((chances===0)||(chances<0))
-           {
-             console.log("Sorry! You lost!! Please start a new game")
-           }
-           else{
-                console.log("chances left"+chances)
-               }      
-        }
+  async updateGame(
+    @Param('id') insultId: number,
+    @Body() update: Partial<Insult>
+  ) {
+    let currentGame = await Insult.findOneById(insultId)
+    console.log(currentGame)
+    if(currentGame!=null) {
+      const chances = calculateChances(currentGame.comeback,update.comeback)
+      if(chances <= 0) {
+        console.log("Sorry! You lost!! Please start a new game")
       }
+      else {
+        console.log("chances left"+chances)
+      }
+    }
+  }
   
 }
