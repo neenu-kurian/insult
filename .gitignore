@@ -1,3 +1,4 @@
 node_moduled
 target
 dist
+.DS_Store
