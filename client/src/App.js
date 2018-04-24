@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import GamePage from './components/gamePage'
 import SignupPage from './components/signup/SignupPage'
 import NewGame from './components/newGame'
-// import insult from './components/Insult'
+import SignupPage from './components/SignupPage'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import './App.css'
 
 class App extends Component {
@@ -11,9 +12,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <nav>
-           
-          </nav>
           <main style={{marginTop:75}}>
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/games" component={NewGame} />
