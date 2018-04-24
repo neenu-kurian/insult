@@ -3,6 +3,7 @@ import { useKoaServer } from 'routing-controllers'
 import setupDb from './db'
 import InsultController from './insults/controller'
 import * as Koa from 'koa'
+import UserController from './users/controller';
 
 const app = new Koa()
 const port = process.env.PORT || 4000
@@ -10,7 +11,8 @@ const port = process.env.PORT || 4000
 useKoaServer(app, {
   cors: true,
   controllers: [
-    InsultController
+    InsultController,
+    UserController
   ]
 })
 
