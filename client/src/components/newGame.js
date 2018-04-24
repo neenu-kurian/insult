@@ -10,7 +10,7 @@ export default class NewGame extends PureComponent {
       }
     render() {
      return (
-            <button class='start-btn' onClick={this.handleClick}>New Game</button>
+            <button className='start-btn' onClick={this.handleClick}>New Game</button>
         )
     }
 }

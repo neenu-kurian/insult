@@ -9,6 +9,7 @@ import * as IO from 'socket.io'
 import * as socketIoJwtAuth from 'socketio-jwt-auth'
 import { secret, verify } from './jwt'
 import LoginController from './logins/controller';
+import UserController from './users/controller';
 
 
 const app = new Koa()
@@ -20,7 +21,8 @@ useKoaServer(app, {
   cors: true,
   controllers: [
     InsultController,
-    LoginController
+    LoginController,
+    UserController
   ],
 
 authorizationChecker: (action: Action) => {
