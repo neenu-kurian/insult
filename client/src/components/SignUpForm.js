@@ -1,54 +1,54 @@
 import React, {PureComponent} from 'react'
-import {userSignUp} from '../actions/signUp'
-import { connect } from 'react-redux'
 
- class SignUpForm extends PureComponent {
+export default class SignupForm extends PureComponent {
+	state = {}
 
-    render(){
-        return(
-            <form onSubmit={this.handleSubmit}>
-            <div>
-                <label htmlFor="firstName">firstName</label>
-                <input type="firstName" name="firstName" id="firstName" value={
-                this.props.firstName||" "
-                }onChange={this.handleChange}/>
-                </div>
-             <div>
-               <label htmlFor="lastName">lastName</label>
-               <input type="lastName" name="lastName" id="lastName" value={
-               this.props.lastName||" "
-               }onChange={this.handleChange}/>
-             </div>
-              <div>
-                  <label htmlFor="email">Email</label>
-                  <input type="email" name="email" id="email" value={
-                   this.props.email|| " "
-                  }onChange={this.handleChange}/>
-             </div>
-             <div>
-            <label htmlFor="password">Password</label>
-            <input type="password" name="password" id="password" value={
-                this.props.password||" "
-            }onChange={this.handleChange}/>
-             </div>
+	handleSubmit = (e) => {
+		e.preventDefault()
+		this.props.onSubmit(this.state)
+	}
 
-             <div>
-               <label htmlFor="confirm password">Confirm Password</label>
-               <input type="password" name="confirmPassword" id="confirmPassword" value={
-                 this.props.password||" "
-               }onChange={this.handleChange}/>
-             </div>
+	handleChange = (event) => {
+    const {name, value} = event.target
 
-             <button type="submit">Submit </button>
-            </form>
+    this.setState({
+      [name]: value
+    })
+  }
 
-        )
-    }
+	render() {
+		return (
+			<form onSubmit={this.handleSubmit}>
+				<div>
+					<label htmlFor="email">Email</label>
+					<input type="email" name="email" id="email" value={
+						this.state.email || ''
+					} onChange={ this.handleChange } />
+				</div>
+
+				<div>
+					<label htmlFor="password">Password</label>
+					<input type="password" name="password" id="password" value={
+						this.state.password || ''
+					} onChange={ this.handleChange } />
+				</div>
+
+				<div>
+					<label htmlFor="confirmPassword">Confirm password</label>
+					<input type="password" name="confirmPassword" id="confirmPassword" value={
+						this.state.confirmPassword || ''
+					} onChange={ this.handleChange } />
+				</div>
+
+				{
+					this.state.password &&
+					this.state.confirmPassword &&
+					this.state.password !== this.state.confirmPassword &&
+					<p style={{color:'red'}}>The passwords do not match!</p>
+				}
+
+				<button type="submit">Sign up</button>
+			</form>
+		)
+	}
 }
-
-const mapStateToProps=(state)=>{
-    // state=this.state
-    signup: state.signup
-}
-
-export default connect(mapStateToProps,{userSignUp} )(SignUpForm)

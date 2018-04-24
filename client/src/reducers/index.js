@@ -1,7 +1,9 @@
-import insults from './insults'
+
 import signup from './signUp'
+import insults from './insults'
 
 export default {
-  insults,
-  signup
+  
+  signup,
+  insults
 }

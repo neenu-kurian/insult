@@ -1,20 +1,20 @@
-import { SIGN_UP } from '../actions/signUp'
+import {
+	USER_SIGNUP_SUCCESS, USER_SIGNUP_FAILED
+} from '../actions/signUp'
 
-const initalState={
-   firstName:"neenu",
-   lastName:"k",
-   email:"abc@gmail.com",
-   passsword:"password",
-   confirmpassword:"password"
-}
+export default function (state = {}, {type, payload}) {
+	switch(type) {
+    case USER_SIGNUP_SUCCESS:
+      return {
+        success: true
+      }
 
-export default function (state=initalState,{type,payload}){
-    switch(type) {
-        case SIGN_UP:
-        return{
-            payload
-        }
-        default:
-        return state
-    }
+    case USER_SIGNUP_FAILED:
+      return {
+        error: payload
+      }
+
+		default:
+      return state
+	}
 }
