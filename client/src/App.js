@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import GamePage from './components/gamePage'
 import NewGame from './components/newGame'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
-
+import SignUpForm from './components/SignUpForm'
 
 class App extends Component {
   render() {
@@ -11,9 +11,10 @@ class App extends Component {
       <Router>
 
         <div>
-          <Route exact path="/games" component={NewGame} />
+          <Route exact path="/signup" component={SignUpForm} />
+          <Route exact path="/signup/games" component={NewGame} />
           <Route exact path="/" render={() => <Redirect to="/games" />} />
-          <Route exact path="/games/:id" component={GamePage} />
+          <Route exact path="/signup/games/:id" component={GamePage} />
          </div>
          
       </Router>
