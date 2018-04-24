@@ -15,15 +15,15 @@ class AuthenticatePayload {
 export default class LoginController {
     @Post('/logins')
     async authenticate(
-        @Body() { email, password }: AuthenticatePayload
+    @Body() { email, password}: AuthenticatePayload
     ) {
         const user = await User.findOne({ where: { email } })
         if (!user) throw new BadRequestError('This user does not exist!')
 
         if (!await user.checkPassword(password)) throw new BadRequestError('The password is incorrect')
+
+        const jwt = sign({ id: user.id! })
+        return { jwt }
+        // return 'you hit the login route'
     }
-
-    const jwt = sign({ id: user.id! })
-    return { jwt }
-
 }
