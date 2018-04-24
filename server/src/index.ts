@@ -69,10 +69,12 @@ io.on('connect', socket => {
     console.log(`User ${name} just disconnected`)
   })
 
+ 
+})
+
 setupDb()
   .then(_ => {
     server.listen(port)
     console.log(`Insult listening on ${port}`)    
   })
   .catch(err => console.error(err))
-
