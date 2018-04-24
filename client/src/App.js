@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import GamePage from './components/gamePage'
 import SignupPage from './components/signup/SignupPage'
 import NewGame from './components/newGame'
-import SignupPage from './components/SignupPage'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import './App.css'
 
 class App extends Component {

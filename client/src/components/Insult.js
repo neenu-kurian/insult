@@ -17,7 +17,7 @@ class Insult extends PureComponent {
   }
   render(){
     const insults = this.props.insults
-    console.log(insults)    
+    // console.log(insults)    
     return (
       <div>
 
