@@ -25,13 +25,13 @@ class CustomNamingStrategy extends DefaultNamingStrategy implements NamingStrate
 }
 
 export default () => createConnection({
-    type: "postgres",
-    url: process.env.DATABASE_URL || 'postgres://postgres:woof@localhost:5432/postgres',
-    entities: [
-      Insult
-    ],
-    synchronize: true, // careful with this in production!
-    logging: true,
-    namingStrategy: new CustomNamingStrategy()
-  })
-    .then(_ => console.log('Connected to Postgres with TypeORM'))
+  type: "postgres",
+  url: process.env.DATABASE_URL || 'postgres://postgres:woof@localhost:5432/postgres',
+  entities: [
+    Insult
+  ],
+  synchronize: true, // careful with this in production!
+  logging: true,
+  namingStrategy: new CustomNamingStrategy()
+})
+  .then(_ => console.log('Connected to Postgres with TypeORM'))

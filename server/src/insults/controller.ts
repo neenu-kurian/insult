@@ -3,11 +3,9 @@ import { Insult } from './entities'
 import {calculateChances} from './logic'
 
 @JsonController()
-export default class InsultController 
-{
+export default class InsultController {
   @Get('/insults')
-  getInsults()
-  {
+  getInsults(){
     return Insult.find()
   }
 
@@ -24,17 +22,13 @@ export default class InsultController
     @Param('id') insultId: number,
     @Body() update: Partial<Insult>
   ) {
-    let currentGame = await Insult.findOneById(insultId)
-    console.log(currentGame)
+    const currentGame = await Insult.findOneById(insultId)
+    // console.log(currentGame)
     if(currentGame!=null) {
-      const chances = calculateChances(currentGame.comeback,update.comeback)
-      if(chances <= 0) {
-        console.log("Sorry! You lost!! Please start a new game")
-      }
-      else {
-        console.log("chances left"+chances)
-      }
+      const chances = calculateChances(currentGame.comeback, update.comeback)
+      if(chances <= 0) return("Sorry! You lost!! Please start a new game")
+      else return("chances left" + chances)
     }
   }
-  
+
 }
