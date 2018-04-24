@@ -11,7 +11,6 @@ import { secret, verify } from './jwt'
 import LoginController from './logins/controller';
 import UserController from './users/controller';
 
-
 const app = new Koa()
 const server = new Server(app.callback())
 export const io = IO(server)
@@ -69,7 +68,6 @@ io.on('connect', socket => {
   socket.on('disconnect', () => {
     console.log(`User ${name} just disconnected`)
   })
-})
 
 setupDb()
   .then(_ => {
