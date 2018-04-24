@@ -1,5 +1,11 @@
 import insults from './insults'
+import user from './user'
+import login from './login'
+import currentUser from './currentUser'
 
 export default {
-  insults
+  insults,
+  user,
+  login,
+  currentUser
 }
