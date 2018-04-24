@@ -13,8 +13,8 @@ export class Insult extends BaseEntity {
   @Column('text', {nullable: false})
   comeback: string;
 
-  @OneToMany(_ => Game, game => game.insult, { eager: true })
-  games: Game[]
+  // @OneToMany(_ => Game, game => game.insult, { eager: true })
+  // games: Game[]
 }
 
 @Entity()
@@ -32,6 +32,6 @@ export class Game extends BaseEntity {
   @Column()
   userId: number
 
-  @Column()
-  move: Move //the move the player just made
+  // @Column()
+  // move: Move //the move the player just made
 }
