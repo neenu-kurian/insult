@@ -1,13 +1,13 @@
 import 'reflect-metadata'
 import { Action, BadRequestError, useKoaServer } from 'routing-controllers'
 import setupDb from './db'
-import InsultController from './insults/controller'
 import User from './users/entities'
 import * as Koa from 'koa'
 import { Server } from 'http'
 import * as IO from 'socket.io'
 import * as socketIoJwtAuth from 'socketio-jwt-auth'
 import { secret, verify } from './jwt'
+import InsultController from './insults/controller'
 import LoginController from './logins/controller';
 import UserController from './users/controller';
 
@@ -68,6 +68,7 @@ io.on('connect', socket => {
   socket.on('disconnect', () => {
     console.log(`User ${name} just disconnected`)
   })
+})
 
  
 })
