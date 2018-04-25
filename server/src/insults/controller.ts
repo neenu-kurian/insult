@@ -30,5 +30,4 @@ export default class InsultController {
       else return("chances left" + chances)
     }
   }
-
 }

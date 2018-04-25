@@ -5,9 +5,9 @@ import React, { PureComponent } from 'react'
 
 export default class NewGame extends PureComponent {
 
-    handleClick() {
-        window.location = '/games/1';
-      }
+    // handleClick() {
+    //     window.location = '/games/:id';
+    //   }
     render() {
      return (
             <button className='start-btn' onClick={this.handleClick}>New Game</button>

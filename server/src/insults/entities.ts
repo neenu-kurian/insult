@@ -1,5 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, OneToMany } from 'typeorm'
-import User from '../users/entities'
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity} from 'typeorm'
 
 export type Move = 'x'| 'o'
 
@@ -14,8 +13,8 @@ export class Insult extends BaseEntity {
   @Column('text')
   comeback: string
 
-  @OneToMany(_ => Game, game => game.insults)
-  games: Game[]
+  @Column('int') // game it's being used in
+  game: number
 }
 
 @Entity()
@@ -23,17 +22,20 @@ export class Game extends BaseEntity {
   @PrimaryGeneratedColumn()
   id?: number
 
-  @ManyToOne(_ => User, user => user.game)
-  user: User[]
+  @Column('int')
+  user_1: number
 
-  @ManyToOne(_ => Insult, insult => insult.games)
-  insults: Insult
+  @Column('int')
+  user_2: number
+
+  @Column('int')
+  insult: number //id of the insult being used
 
   @Column('char', {default: 'x'})
   move: Move
 
   @Column()
-  userId: number
+  current_user: number
 } 
 /* 
 Users
