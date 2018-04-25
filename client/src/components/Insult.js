@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { fetchInsults, fetchInsult,fetchAllComebacks } from '../actions/insults'
+import NewGame from './newGame'
 
 class Insult extends PureComponent {
   handleClick = (insults, e) => {
@@ -26,6 +27,7 @@ class Insult extends PureComponent {
     //console.log(insults)    
     return (
       <div>
+        {/* <NewGame /> */}
 
       {
         insults ? <p key={insults.id} onClick={(e) => this.handleClick(insults, e)}>{insults.insult}</p> : <p></p>

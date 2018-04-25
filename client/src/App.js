@@ -16,7 +16,7 @@ class App extends Component {
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/logout" component={LogoutPage} />
-            <Route exact path="/games" component={NewGame} />
+            {/* <Route exact path="/games" component={NewGame} /> */}
             <Route exact path="/games/:id" component={GamePage} />
             {/* <Route exact path="/" render={ () => <Redirect to="/games" /> } /> */}
           </main>
