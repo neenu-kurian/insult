@@ -5,6 +5,7 @@ export const baseUrl = 'http://localhost:4000'
 
 export const FETCHED_ALL_INSULTS = 'FETCHED_ALL_INSULTS'
 export const FETCHED_INSULT = 'FETCHED_INSULT'
+export const FETCH_ALL_COMEBACKS='FETCH_ALL_COMEBACKS'
 
 export const fetchInsults = () => (dispatch) => {
  request
@@ -26,3 +27,13 @@ export const fetchInsult = () => (dispatch) => {
   }))
   .catch(err => console.error(err))
 } 
+
+export const fetchAllComebacks=()=>(dispatch)=>{
+  request
+  .get(`${baseUrl}/insults`)
+  .then(res=>dispatch({
+    type:FETCH_ALL_COMEBACKS,
+    payload:res.body
+  }))
+  .catch(err=>console.log(err))
+}

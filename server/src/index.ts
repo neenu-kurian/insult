@@ -70,6 +70,9 @@ io.on('connect', socket => {
   })
 })
 
+ 
+})
+
 setupDb()
   .then(_ => {
     server.listen(port)

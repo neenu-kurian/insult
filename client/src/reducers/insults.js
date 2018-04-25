@@ -1,4 +1,4 @@
-import { FETCHED_ALL_INSULTS, FETCHED_INSULT } from '../actions/insults'
+import { FETCHED_ALL_INSULTS, FETCHED_INSULT,FETCH_ALL_COMEBACKS } from '../actions/insults'
 
 // const initialInsult = [
 //   {
@@ -21,7 +21,10 @@ export default (state = [], {type, payload}) => {
 
     case FETCHED_INSULT:
       return payload
-
+    
+    case FETCH_ALL_COMEBACKS:
+      return payload
+      
     default:
       return state
   }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import GamePage from './components/gamePage'
 import SignupPage from './components/signup/SignupPage'
+
 import NewGame from './components/newGame'
 import './App.css'
 

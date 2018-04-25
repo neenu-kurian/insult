@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { fetchInsults, fetchInsult } from '../actions/insults'
+import { fetchInsults, fetchInsult,fetchAllComebacks } from '../actions/insults'
 
 class Insult extends PureComponent {
   handleClick = (insults, e) => {
@@ -14,10 +14,16 @@ class Insult extends PureComponent {
   hitMe(e) {
     e.preventDefault()
     this.props.fetchInsult()
+    this.props.fetchAllComebacks()
+    console.log('comebacks')
+    if(this.props.insults[0] !== undefined) {
+       
+      this.props.insults.map(insult => console.log(insult.comeback))
+    }
   }
   render(){
     const insults = this.props.insults
-    // console.log(insults)    
+    //console.log(insults)    
     return (
       <div>
 
@@ -32,6 +38,6 @@ class Insult extends PureComponent {
 
 const mapStateToProps = ({insults}) => ({insults})
 
-export default connect(mapStateToProps, { fetchInsults, fetchInsult })(Insult)
+export default connect(mapStateToProps, { fetchInsults, fetchInsult, fetchAllComebacks })(Insult)
 
 // insults ? insults.map((insult) => <p key={insult.id} onClick={(e) => this.handleClick(insult, e)}>{insult.insult}</p>) : <p>Insult me!</p>
