@@ -62,15 +62,12 @@ io.use(socketIoJwtAuth.authenticate({ secret }, async (payload, done) => {
 
 
 io.on('connect', socket => {
-  // const name = socket.request.user.firstName
+  const name = socket.request.user.firstName
   console.log(`connected on ${socket.id}`)
 
   socket.on('disconnect', () => {
     console.log(`User ${name} just disconnected`)
   })
-})
-
- 
 })
 
 setupDb()
