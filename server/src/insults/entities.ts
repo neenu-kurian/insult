@@ -1,6 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, OneToMany } from 'typeorm'
 import User from '../users/entities'
 
+export type Move = 'x'| 'o'
+
 @Entity()
 export class Insult extends BaseEntity {
   @PrimaryGeneratedColumn()
@@ -27,8 +29,8 @@ export class Game extends BaseEntity {
   @ManyToOne(_ => Insult, insult => insult.games)
   insults: Insult
 
-  @Column('int')
-  move: number
+  @Column('char', {default: 'x'})
+  move: Move
 
   @Column()
   userId: number
