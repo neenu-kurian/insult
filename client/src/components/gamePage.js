@@ -3,23 +3,22 @@ import Insult from './insults/Insult'
 import Comebacks from './comebacks/Comebacks';
 import { fetchInsults } from '../actions/insults'
 import { Link, Redirect } from 'react-router-dom'
-
 import { connect } from 'react-redux'
 import '../App.css';
 
 class GamePage extends Component {
   render() {
-    const {chances, currentUser} = this.props
+    const {chances, authenticated} = this.props
     return (
       <div className="App">
         {
-          !currentUser ? 
-          <button className="signup-button"><Link to="/signup">Signup</Link></button> : 
+          authenticated ? 
+          <button className="signup-button"><Link to="/login">Login</Link></button> : 
           <Redirect to="/games" />
         }
         <header className="App-header">
            <h1 className="App-title">Insult Sword Fighting</h1>
-          <img src="https://i.giphy.com/media/eXUQGrHrur4Fq/giphy.webp" alt="Sowrd Gif" />
+          <img src="http://www.communication4all.co.uk/animated%20gifs/pirate_ninja_sword_fight_hg_clr.gif" alt="Sowrd Gif" />
         </header>
         <p>Chances left: {chances}</p>
         <Insult />
@@ -32,8 +31,9 @@ class GamePage extends Component {
 
 const mapStateToProps = (state) => (
   {
-  insults: state.insults,
-  chances: state.chances
+    authenticated: state.currentUser,
+    insults: state.insults,
+    chances: state.chances
   }
 )
 

@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { fetchInsult, fetchInsults, comeback } from '../../actions/insults'
+import Sound from 'react-sound'
 import "./Comebacks.css"
-import { Redirect } from 'react-router-dom';
 
 class Comebacks extends PureComponent {
   handleClick = (e) => {
@@ -19,7 +19,15 @@ class Comebacks extends PureComponent {
     return(
       <div>
         {
-          chances === 0 ? <Redirect to='/games' /> : console.log('keep going!')
+          chances === 0 ? (
+            <div>
+              <Sound 
+              url="./loser.mp3 "
+              playStatus={Sound.status.PLAYING}
+              autoLoad={true}/>
+              <img className="loser" alt='loser' src="https://media1.giphy.com/media/3og0IEeKFFlzaykixW/giphy.gif" />
+            </div>
+        ): console.log('keep going!')
         }
        {insults.length > 1 ? insults.map(insult => <p onClick={(e) => this.handleComeback(e)} key={insult.id}>{insult.comeback}</p>) : <p>{insults.insulted}</p>}
        <button onClick={this.handleClick}>Comebacks!</button>
