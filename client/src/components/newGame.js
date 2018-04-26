@@ -1,17 +1,12 @@
 import React, { PureComponent } from 'react'
-// import { connect } from 'react-redux'
-// import {Link} from 'react-router-dom'
-// import { Router } from 'react-router';
+import { Link } from 'react-router-dom'
 
-export default class NewGame extends PureComponent {
-
-    // handleClick() {
-    //     window.location = '/games/:id';
-    //   }
+class NewGame extends PureComponent {
     render() {
      return (
-            <button className='start-btn' onClick={this.handleClick}>New Game</button>
+            <button className='App start-btn'><Link to="/games/1">New Game</Link></button>
         )
     }
 }
 
+export default NewGame;

@@ -11,11 +11,11 @@ class SignupPage extends PureComponent {
 
   render() {
     if (this.props.signup.success) return (
-      <Redirect to="/" />
+      <Redirect to="/games/1" />
     )
 
     return (
-      <div>
+      <div className="App">
         <h1>Sign up</h1>
 
         <SignupForm onSubmit={this.handleSubmit} />
