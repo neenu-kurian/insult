@@ -11,6 +11,9 @@ class GamePage extends Component {
     const {chances, authenticated} = this.props
     return (
       <div className="App">
+        <form>
+          <input className='signup-button' type='submit' value='New Game' />
+        </form>
         {
           authenticated ? 
           <button className="signup-button"><Link to="/login">Login</Link></button> : 
