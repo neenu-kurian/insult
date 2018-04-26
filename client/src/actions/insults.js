@@ -29,7 +29,7 @@ export const fetchInsult = (id) => (dispatch, getState) => {
 } 
  export const comeback = (comeback, userComeback, chances) => (dispatch) => {
   let chancesRes = chances - 1
-  if(comeback === userComeback) alert('yay! Correct comeback!')
+  if(comeback === userComeback) alert('Yay! Correct comeback!')
   else dispatch({
     type: COMEBACK,
     payload: chancesRes

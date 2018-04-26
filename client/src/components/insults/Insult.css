@@ -3,3 +3,10 @@
 p {
   font-family: 'Gloria Hallelujah', cursive;
 }
+
+button {
+  background-color: skyblue;
+  padding: 5px 10px;
+  border-radius: 100px;
+  transform: scale(2);
+}
